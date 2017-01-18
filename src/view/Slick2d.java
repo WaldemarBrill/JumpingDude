@@ -13,7 +13,7 @@ public class Slick2d extends BasicGame {
 	private AppGameContainer app;
 	
 	private int trys = 0;
-	private int levelNumber = 0;
+	private int levelNumber = 7;
 	private int startDelay = 0;
 	private int time = 0;
 	private Level lvl;
@@ -53,6 +53,9 @@ public class Slick2d extends BasicGame {
 			break;
 		case 6:
 			lvl = new Level_6();
+			break;
+		case 7:
+			lvl = new Level_7();
 			break;
 		default:
 			break;
