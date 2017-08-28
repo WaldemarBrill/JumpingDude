@@ -317,7 +317,13 @@ public class Waldi {
 	
 	
 	
-	
+	public boolean getCollisionWithGround(Ground gr) {
+		if (hitboxTop.intersects(gr.giveShape())) {return true;}
+		if (hitboxBot.intersects(gr.giveShape())) {return true;}
+		if (hitboxLeft.intersects(gr.giveShape())) {return true;}
+		if (hitboxRight.intersects(gr.giveShape())) {return true;}
+		return false;
+	}
 	
 	public void setCollisionUp(List<Ground> ground) {
 		for (Ground gr : ground) {
@@ -333,6 +339,8 @@ public class Waldi {
 					break;
 				case 5:
 					Slick2d.DEAD = true;
+					break;
+				case 6:
 					break;
 				case 10:
 					Slick2d.LEVELUP = true;
@@ -353,6 +361,9 @@ public class Waldi {
 					case 5:
 						Slick2d.DEAD = true;
 						break;
+					case 6:
+						collisionDown = false;
+						return;
 					case 10:
 						Slick2d.LEVELUP = true;
 						break;
@@ -389,6 +400,8 @@ public class Waldi {
 				case 5:
 					Slick2d.DEAD = true;
 					break;
+				case 6:
+					break;
 				case 10:
 					Slick2d.LEVELUP = true;
 					break;
@@ -417,6 +430,8 @@ public class Waldi {
 				case 4:
 				case 5:
 					Slick2d.DEAD = true;
+					break;
+				case 6:
 					break;
 				case 10:
 					Slick2d.LEVELUP = true;

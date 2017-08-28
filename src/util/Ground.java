@@ -6,7 +6,7 @@ import org.newdawn.slick.Color;
 
 public class Ground {
 	
-	private int type;	//0=Full Block,  1=SlideUp,  2=SlideDown,  3=Plate,  4=Spike
+	private int type;
 	private Shape tileBlock;
 	private Color color = Color.gray;
 	
@@ -50,6 +50,12 @@ public class Ground {
 		} else if (type == 5) {
 			color = Color.red;
 			tileBlock = new Rectangle(x, y, length, height);
+		} else if (type == 6) {
+			color = Color.green;
+			tileBlock = new Line(x, y, 0f, height, false);
+		} else if (type == 7) {
+		} else if (type == 8) {
+		} else if (type == 9) {
 		} else if (type == 10) {
 			color = Color.green;
 			float f = 4f;

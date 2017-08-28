@@ -60,6 +60,12 @@ public abstract class Level {
 		keyD = gc.getInput().isKeyDown(Input.KEY_D);
 		keySpace = gc.getInput().isKeyPressed(Input.KEY_SPACE);
 	}
+	protected boolean collisionDetectionWaldiOneGround(Ground gr) {
+		for (Waldi waldi : waldi) {
+			return waldi.getCollisionWithGround(gr);
+		}
+		return false;
+	}
 	protected void collisionDetectionWaldiGround() {
 		for (Waldi waldi : waldi) {
 			waldi.setCollisionLeft(ground);

@@ -112,7 +112,11 @@ public class Slick2d extends BasicGame {
 			if (app != null) {
 				try {
 					app.setDisplayMode(1600, 900, false);
-					app.reinit();
+					//app.reinit();
+					startDelay = 60;
+					DEAD = false;
+					LEVELUP = false;
+					lvl.init();
 					trys++;
 				} catch (Exception e) {
 					Log.error(e);

@@ -11,7 +11,13 @@ import util.Waldi;
 
 public class Level_7 extends Level {
 	
+	private float xSpawn;
+	private float ySpawn;
+	private Ground checkpoint;
+	
 	public Level_7() {
+		xSpawn = 320f;
+		ySpawn = 50f;
 		init();
 	}
 
@@ -24,7 +30,7 @@ public class Level_7 extends Level {
 		keySpace = false;
 		
 		waldi = new LinkedList<>();
-		waldi.add(new Waldi(320f, 50f, 20f, 4f));
+		waldi.add(new Waldi(xSpawn, ySpawn, 20f, 4f));
 		
 		enemy = new LinkedList<>();
 		enemy.add(new Enemy(0, 200f, 800f, 50f, 0f, 150f, true, 7f));
@@ -54,6 +60,8 @@ public class Level_7 extends Level {
 		ground.add(new Ground(5, 120f, 575f, 50f, 175f));
 		
 		ground.add(new Ground(3, 5f, 890f, 800f, 0f));
+		checkpoint = new Ground(6, 800f, 800f, 0f, 50f);
+		ground.add(checkpoint);
 	}
 	@Override
 	public void render(GameContainer gc, Graphics g) {
@@ -64,6 +72,10 @@ public class Level_7 extends Level {
 
 	@Override
 	public void update(GameContainer gc) {
+		if (collisionDetectionWaldiOneGround(checkpoint)) {
+			xSpawn = 900f;
+			ySpawn = 50f;
+		}
 		keyPressed(gc);
 		collisionDetectionWaldiGround();
 		collisionDetectionWaldiEnemy();
